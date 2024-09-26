@@ -1,0 +1,36 @@
+0	179	entity_0 relation_0_child0
+2	50	entity_0
+2	73	entity_1
+2	76	entity_2
+2	90	entity_3 relation_1_child0
+2	96	entity_4
+2	106	entity_5
+2	110	entity_6
+2	136	entity_7
+2	70	relation_0_head0 relation_0_head1 relation_0_head2 relation_0_child0
+2	85	relation_1_head0
+2	103	relation_2_head0
+2	108	relation_2_child0
+4	41	entity_0 relation_0_child0
+4	143	entity_1
+4	221	entity_2 relation_2_child0 relation_3_head0
+4	225	entity_3
+4	36	relation_0_head0
+4	137	relation_1_head0
+4	142	relation_1_child0
+4	220	relation_2_head0
+4	224	relation_3_child0
+7	44	entity_0 relation_0_head0
+7	50	entity_1
+7	52	entity_2
+7	56	entity_3 relation_1_head0
+8	165	entity_0 relation_0_child0
+8	161	relation_0_head0
+10	68	entity_0 relation_0_child0
+10	67	relation_0_head0
+11	51	entity_0
+11	61	entity_1
+11	59	relation_0_head0
+12	15	entity_0 relation_0_head2
+12	9	relation_0_head0
+12	2	relation_0_head1

@@ -22,11 +22,11 @@ pip install -e .
 
 ```shell
 # XSum
-mkdir -p $DATA/xsum_synthetic/negative_swapent
-python swap_entity.py $DATA/xsum_raw/train.source $DATA/xsum_raw/train.target \
- $DATA/xsum_synthetic/negative_swapent/train_swap_same_entity.jsonl
-python swap_entity.py $DATA/xsum_raw/validation.source $DATA/xsum_raw/validation.target \
- $DATA/xsum_synthetic/negative_swapent/valid_swap_same_entity.jsonl
+mkdir -p $DATA/job_ad_synthetic/negative_swapent
+python swap_entity.py $DATA/job_ad_raw/train.source $DATA/job_ad_raw/train.target \
+ $DATA/job_ad_synthetic/negative_swapent/train_swap_same_entity.jsonl
+python swap_entity.py $DATA/job_ad_raw/validation.source $DATA/job_ad_raw/validation.target \
+ $DATA/job_ad_synthetic/negative_swapent/valid_swap_same_entity.jsonl
  
 # CNN/DM
 mkdir -p $DATA/cnndm_synthetic/negative_swapent
@@ -40,10 +40,10 @@ python swap_entity.py $DATA/cnndm_raw/val.source $DATA/cnndm_raw/val.target \
 
 ```shell
 # XSum
-python swap_entity_out.py $DATA/xsum_raw/train.bpe.source $DATA/xsum_synthetic/negative_swapent/train_swap_same_entity.jsonl \
- $DATA/xsum_synthetic/negative_swapent/train
-python swap_entity_out.py $DATA/xsum_raw/validation.bpe.source $DATA/xsum_synthetic/negative_swapent/valid_swap_same_entity.jsonl \
- $DATA/xsum_synthetic/negative_swapent/valid
+python swap_entity_out.py $DATA/job_ad_raw/train.bpe.source $DATA/job_ad_synthetic/negative_swapent/train_swap_same_entity.jsonl \
+ $DATA/job_ad_synthetic/negative_swapent/train
+python swap_entity_out.py $DATA/job_ad_raw/validation.bpe.source $DATA/job_ad_synthetic/negative_swapent/valid_swap_same_entity.jsonl \
+ $DATA/job_ad_synthetic/negative_swapent/valid
  
 # CNN/DM
 python swap_entity_out.py $DATA/cnndm_raw/train.bpe.source $DATA/cnndm_synthetic/negative_swapent/train_swap_same_entity.jsonl \

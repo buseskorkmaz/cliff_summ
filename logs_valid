@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "/dccstor/autofair/busekorkmaz/syslowcon/bin/fairseq-generate", line 8, in <module>
+    sys.exit(cli_main())
+  File "/dccstor/autofair/busekorkmaz/syslowcon/lib/python3.8/site-packages/fairseq_cli/generate.py", line 392, in cli_main
+    main(args)
+  File "/dccstor/autofair/busekorkmaz/syslowcon/lib/python3.8/site-packages/fairseq_cli/generate.py", line 48, in main
+    return _main(cfg, h)
+  File "/dccstor/autofair/busekorkmaz/syslowcon/lib/python3.8/site-packages/fairseq_cli/generate.py", line 83, in _main
+    task = tasks.setup_task(cfg.task)
+  File "/dccstor/autofair/busekorkmaz/syslowcon/lib/python3.8/site-packages/fairseq/tasks/__init__.py", line 44, in setup_task
+    return task.setup_task(cfg, **kwargs)
+  File "/dccstor/autofair/busekorkmaz/syslowcon/lib/python3.8/site-packages/fairseq/tasks/translation.py", line 257, in setup_task
+    args.source_lang, args.target_lang = data_utils.infer_language_pair(
+  File "/dccstor/autofair/busekorkmaz/syslowcon/lib/python3.8/site-packages/fairseq/data/data_utils.py", line 27, in infer_language_pair
+    for filename in os.listdir(path):
+FileNotFoundError: [Errno 2] No such file or directory: '/dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_binarzied'
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@cccxc434.pok.ibm.com>
+Subject: Job 4011309: <fairseq-generate /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_binarzied --path /dccstor/autofair/busekorkmaz/cliff_summ/data_construction/neg_mask_regen/bart.large/model.pt --results-path /dccstor/autofair/busekorkmaz/cliff_summ/data/processed_data/syslowcon_job_ad_generation --task translation --beam 6 --max-len-b 60 --min-len 10 --lenpen 1.0 --nbest 6 --no-repeat-ngram-size 3 --skip-invalid-size-inputs-valid-test --batch-size 16 --fp16 --truncate-source --gen-subset valid> in cluster <cccCluster> Exited
+
+Job <fairseq-generate /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_binarzied --path /dccstor/autofair/busekorkmaz/cliff_summ/data_construction/neg_mask_regen/bart.large/model.pt --results-path /dccstor/autofair/busekorkmaz/cliff_summ/data/processed_data/syslowcon_job_ad_generation --task translation --beam 6 --max-len-b 60 --min-len 10 --lenpen 1.0 --nbest 6 --no-repeat-ngram-size 3 --skip-invalid-size-inputs-valid-test --batch-size 16 --fp16 --truncate-source --gen-subset valid> was submitted from host <cccxl010> by user <busekorkmaz> in cluster <cccCluster> at Wed Jul 31 10:41:15 2024
+Job was executed on host(s) <4*cccxc434>, in queue <x86_6h>, as user <busekorkmaz> in cluster <cccCluster> at Wed Jul 31 10:44:18 2024
+</u/busekorkmaz> was used as the home directory.
+</dccstor/autofair/busekorkmaz/cliff_summ/data_construction/neg_syslowcon/syslowcon_scripts> was used as the working directory.
+Started at Wed Jul 31 10:44:18 2024
+Terminated at Wed Jul 31 10:44:35 2024
+Results reported at Wed Jul 31 10:44:35 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+fairseq-generate /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_binarzied --path /dccstor/autofair/busekorkmaz/cliff_summ/data_construction/neg_mask_regen/bart.large/model.pt --results-path /dccstor/autofair/busekorkmaz/cliff_summ/data/processed_data/syslowcon_job_ad_generation --task translation --beam 6 --max-len-b 60 --min-len 10 --lenpen 1.0 --nbest 6 --no-repeat-ngram-size 3 --skip-invalid-size-inputs-valid-test --batch-size 16 --fp16 --truncate-source --gen-subset valid
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   4.01 sec.
+    Max Memory :                                 300 MB
+    Average Memory :                             234.20 MB
+    Total Requested Memory :                     45056.00 MB
+    Delta Memory :                               44756.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                7
+    Run time :                                   17 sec.
+    Turnaround time :                            200 sec.
+
+The output (if any) is above this job summary.
+

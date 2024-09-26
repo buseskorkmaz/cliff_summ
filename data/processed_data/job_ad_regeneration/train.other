@@ -1,0 +1,296 @@
+1	74	entity_0
+1	128	entity_1
+1	153	entity_2
+1	156	entity_3
+1	70	relation_0_head0
+1	126	relation_1_head0
+1	150	relation_2_head0 relation_2_head1 relation_2_head2
+2	49	entity_0
+2	55	entity_1
+2	90	entity_2
+2	91	entity_3
+2	136	entity_4
+2	139	entity_5
+2	142	entity_6
+2	47	relation_0_head0
+2	132	relation_2_head0
+2	135	relation_2_child0 relation_3_head0
+4	44	entity_0
+4	53	entity_1
+4	51	relation_0_head0
+4	52	relation_0_child0
+5	55	entity_0
+5	58	entity_1
+5	212	entity_2
+5	54	relation_0_head0
+5	57	relation_0_child0
+5	205	relation_1_head0
+8	70	entity_0
+11	12	entity_0
+11	8	relation_0_head0
+14	3	entity_0
+14	31	entity_1
+14	28	relation_1_head0
+16	18	entity_0
+16	73	entity_1 relation_0_child1 relation_0_child2
+16	70	relation_0_head0 relation_0_head1
+16	72	relation_0_child0
+20	42	entity_0
+20	41	relation_0_head0
+21	29	entity_0
+21	142	entity_1
+21	151	entity_2
+21	226	entity_3
+21	139	relation_1_head0
+21	149	relation_2_head0
+21	223	relation_3_head0
+21	224	relation_3_child0
+22	7	entity_0
+22	15	entity_1 relation_0_child0
+22	12	relation_0_head0
+23	0	entity_0
+24	55	entity_0
+24	58	entity_1
+24	212	entity_2
+24	54	relation_0_head0
+24	57	relation_0_child0
+24	205	relation_1_head0
+26	25	entity_0
+26	34	entity_1
+26	78	entity_2
+26	235	entity_3
+26	237	entity_4 relation_3_child0
+27	134	entity_0
+30	28	entity_0 relation_0_child0 relation_0_child1
+31	36	entity_0 relation_0_head0 relation_0_head1
+33	49	entity_0
+34	12	entity_0
+35	17	entity_0
+35	26	entity_1
+35	44	entity_2
+35	56	entity_3
+35	62	entity_4
+35	92	entity_5
+35	150	entity_6
+35	25	relation_0_head0
+36	22	entity_0
+36	170	entity_1
+36	0	relation_0_head0
+36	17	relation_0_child0
+36	20	relation_0_child1
+36	157	relation_1_head0
+36	168	relation_1_child0
+37	50	entity_0
+37	73	entity_1
+37	76	entity_2
+37	90	entity_3 relation_1_child0
+37	96	entity_4
+37	106	entity_5
+37	110	entity_6
+37	159	entity_7
+37	70	relation_0_head0 relation_0_head1 relation_0_head2 relation_0_child0
+37	85	relation_1_head0
+37	103	relation_2_head0
+37	108	relation_2_child0
+38	23	entity_0 relation_0_child0
+38	16	relation_0_head0
+41	8	entity_0
+41	23	entity_1
+41	52	entity_2 relation_1_child0 relation_1_child1
+41	185	entity_3
+41	0	relation_0_head0
+41	51	relation_1_head0
+42	51	entity_0
+42	221	entity_1 relation_1_child0
+42	49	relation_0_head0
+46	2	entity_0
+46	25	entity_1
+46	31	entity_2
+46	37	entity_3
+46	23	relation_0_child0 relation_0_child1 relation_0_child2 relation_0_child3 relation_0_child4 relation_0_child5 relation_0_child6 relation_0_child7 relation_0_child8 relation_0_child9 relation_1_head0
+47	32	entity_0
+47	35	entity_1
+47	52	entity_2
+47	60	entity_3 relation_3_child0 relation_3_child1
+47	100	entity_4
+47	129	entity_5
+47	26	relation_0_head0
+47	31	relation_0_child0 relation_1_head0
+47	49	relation_2_head0
+47	59	relation_3_head0
+47	82	relation_4_head0
+47	98	relation_4_child0
+47	127	relation_5_head0 relation_5_head1 relation_5_head2
+48	5	entity_0
+48	12	entity_1 relation_1_child0
+48	82	entity_2
+48	0	relation_0_head0 relation_0_child0 relation_1_head0
+49	119	entity_0
+49	103	relation_0_head0
+49	118	relation_0_child0 relation_0_child1
+50	33	entity_0 relation_0_child0 relation_0_child1
+50	164	entity_1
+50	170	entity_2
+50	178	entity_3
+50	187	entity_4
+50	30	relation_0_head0
+50	161	relation_1_head0
+50	179	relation_2_head0
+50	186	relation_3_head0 relation_3_head1
+53	70	entity_0
+54	8	entity_0
+55	96	entity_0
+55	102	entity_1
+55	85	relation_0_head0
+55	93	relation_0_child0
+56	35	entity_0 relation_0_child0 relation_0_child1 relation_0_child2 relation_0_child3 relation_0_child4
+56	44	entity_1
+56	57	entity_2
+56	67	entity_3
+56	81	entity_4
+57	50	entity_0
+57	73	entity_1
+57	76	entity_2
+57	90	entity_3 relation_1_child0
+57	96	entity_4
+57	106	entity_5
+57	110	entity_6
+57	159	entity_7
+57	70	relation_0_head0 relation_0_head1 relation_0_head2 relation_0_child0
+57	85	relation_1_head0
+57	103	relation_2_head0
+57	108	relation_2_child0
+58	0	entity_0
+58	39	entity_1
+58	85	entity_2 relation_1_head0
+58	35	relation_0_head0
+60	3	entity_0
+60	31	entity_1
+60	28	relation_1_head0
+61	8	entity_0
+62	0	entity_0 relation_0_child0 relation_0_child1
+63	202	entity_0 relation_0_child0
+63	198	relation_0_head0
+64	194	entity_0
+64	224	entity_1
+64	193	relation_0_head0
+64	223	relation_1_head0
+65	19	entity_0 relation_0_head0 relation_0_head1
+65	37	entity_1
+65	43	entity_2
+65	42	relation_1_child0
+66	23	entity_0 relation_0_head2
+66	21	relation_0_head0
+66	10	relation_0_head1
+67	104	entity_0 relation_0_child0
+68	55	entity_0 relation_0_child0 relation_0_child1
+68	61	entity_1
+68	142	entity_2 relation_2_child0 relation_2_child1
+68	148	entity_3
+68	151	entity_4
+68	45	relation_0_head0
+68	59	relation_1_head0
+69	21	entity_0
+69	50	entity_1
+69	149	entity_2 relation_1_child0
+69	168	entity_3
+69	17	relation_0_head0
+69	140	relation_1_head0
+69	164	relation_2_head0
+70	44	entity_0
+70	75	entity_1 relation_1_child0
+70	81	entity_2
+70	88	entity_3
+70	34	relation_0_head0
+70	72	relation_1_head0
+70	83	relation_2_head0
+71	1	entity_0
+71	10	entity_1
+72	16	entity_0
+72	23	entity_1
+72	3	relation_0_head0
+72	5	relation_0_child0
+72	9	relation_0_child1
+72	13	relation_0_child2
+73	8	entity_0
+73	45	entity_1
+73	48	entity_2
+73	1	relation_0_head0
+73	3	relation_0_child0 relation_0_child1
+74	17	entity_0
+74	30	entity_1
+74	35	entity_2
+74	45	entity_3
+74	28	relation_0_head0
+74	34	relation_1_head0
+75	58	entity_0
+76	17	entity_0 relation_0_head0
+76	67	entity_1
+76	64	relation_1_head0
+77	5	entity_0
+77	12	entity_1 relation_1_child0
+77	79	entity_2
+77	179	entity_3
+77	0	relation_0_head0 relation_0_child0 relation_1_head0
+78	87	entity_0 relation_0_child0
+80	45	entity_0
+80	58	entity_1 relation_1_child1 relation_1_child2 relation_1_child3
+80	54	relation_1_head0
+80	57	relation_1_child0
+81	139	entity_0
+82	74	entity_0 relation_0_child0
+82	115	entity_1
+82	113	relation_1_head0
+83	45	entity_0
+83	58	entity_1 relation_1_child1 relation_1_child2 relation_1_child3
+83	54	relation_1_head0
+83	57	relation_1_child0
+86	25	entity_0
+86	34	entity_1
+86	232	entity_2
+86	234	entity_3 relation_3_child0
+86	15	relation_0_head0
+87	15	entity_0
+87	161	entity_1
+87	14	relation_0_head0 relation_0_head1 relation_0_child0
+87	152	relation_1_head0
+88	6	entity_0
+89	46	entity_0
+89	55	entity_1 relation_1_child0 relation_2_head0
+89	74	entity_2 relation_3_child0
+89	81	entity_3 relation_4_head0 relation_4_head1 relation_4_head2
+89	108	entity_4 relation_5_child0 relation_5_child1 relation_5_child2 relation_5_child3 relation_5_child4 relation_5_child5
+89	244	entity_5 relation_6_child0
+89	44	relation_0_child0
+89	53	relation_1_head0
+89	29	relation_2_head1
+89	71	relation_3_head0
+89	104	relation_5_head0
+90	28	entity_0
+93	20	entity_0
+93	18	relation_0_head0
+94	3	entity_0
+94	31	entity_1
+94	28	relation_1_head0
+95	103	entity_0
+95	112	entity_1
+95	115	entity_2 relation_1_head0
+95	119	entity_3
+95	137	entity_4
+95	105	relation_0_head0
+95	117	relation_1_child0
+97	19	entity_0
+97	27	entity_1
+97	53	entity_2 relation_1_child0
+97	69	entity_3
+97	71	entity_4
+97	98	entity_5
+97	215	entity_6 relation_3_head0 relation_3_child0
+97	26	relation_0_head0
+97	52	relation_1_head0
+97	80	relation_2_head0
+97	96	relation_2_child0
+97	207	relation_3_head1
+97	216	relation_3_child1
+98	94	entity_0
+99	104	entity_0 relation_0_child0

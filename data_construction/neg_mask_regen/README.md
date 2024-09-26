@@ -23,17 +23,17 @@ If you encounter errors like `RuntimeError: Size does not match at dimension 0`,
 
 ```shell
 # XSum
-mkdir -p $DATA/processed_data/xsum_stanza_docbin
-python detect_relation_ne_document_summary.py $DATA/xsum_raw/train.source $DATA/xsum_raw/train.target \
- $DATA/processed_data/xsum_stanza_docbin/train
-python detect_relation_ne_document_summary.py $DATA/xsum_raw/validation.source $DATA/xsum_raw/validation.target \
- $DATA/processed_data/xsum_stanza_docbin/valid
+mkdir -p $DATA/processed_data/job_ad_stanza_docbin
+python detect_relation_ne_document_summary.py $DATA/job_ad_raw/train.source $DATA/job_ad_raw/train.target \
+ $DATA/processed_data/job_ad_stanza_docbin/train
+python detect_relation_ne_document_summary.py $DATA/job_ad_raw/validation.source $DATA/job_ad_raw/validation.target \
+ $DATA/processed_data/job_ad_stanza_docbin/valid
 
-mkdir -p $DATA/processed_data/xsum_relation
-python docbin2relation.py $DATA/processed_data/xsum_stanza_docbin/train.target \
- $DATA/processed_data/xsum_relation/train.jsonl
-python docbin2relation.py $DATA/processed_data/xsum_stanza_docbin/valid.target \
- $DATA/processed_data/xsum_relation/valid.jsonl
+mkdir -p $DATA/processed_data/job_ad_relation
+python docbin2relation.py $DATA/processed_data/job_ad_stanza_docbin/train.target \
+ $DATA/processed_data/job_ad_relation/train.jsonl
+python docbin2relation.py $DATA/processed_data/job_ad_stanza_docbin/valid.target \
+ $DATA/processed_data/job_ad_relation/valid.jsonl
  
 # CNN/DM
 mkdir -p $DATA/processed_data/cnndm_stanza_docbin
@@ -55,11 +55,11 @@ python docbin2relation.py $DATA/processed_data/cnndm_stanza_docbin/valid.target 
 
 ```shell
 # XSum
-mkdir -p $DATA/processed_data/xsum_mask_filling
-python lm_mask_fill.py $DATA/processed_data/xsum_relation/train.jsonl \
- $DATA/processed_data/xsum_mask_filling/train_bart_fill.jsonl
-python lm_mask_fill.py $DATA/processed_data/xsum_relation/valid.jsonl \
- $DATA/processed_data/xsum_mask_filling/valid_bart_fill.jsonl
+mkdir -p $DATA/processed_data/job_ad_mask_filling
+python lm_mask_fill.py $DATA/processed_data/job_ad_relation/train.jsonl \
+ $DATA/processed_data/job_ad_mask_filling/train_bart_fill.jsonl
+python lm_mask_fill.py $DATA/processed_data/job_ad_relation/valid.jsonl \
+ $DATA/processed_data/job_ad_mask_filling/valid_bart_fill.jsonl
 
 # CNN/DM
 mkdir -p $DATA/processed_data/cnndm_mask_filling
@@ -73,19 +73,19 @@ python lm_mask_fill.py $DATA/processed_data/cnndm_relation/valid.jsonl \
 
 ```shell
 # XSum
-python generated_json_to_text.py $DATA/processed_data/xsum_relation/train.jsonl \
- $DATA/processed_data/xsum_mask_filling/train_bart_fill.jsonl \
- $DATA/processed_data/xsum_mask_filling/train_generated.txt \
- $DATA/processed_data/xsum_mask_filling/train_generated.other
-python generated_json_to_text.py $DATA/processed_data/xsum_relation/valid.jsonl \
- $DATA/processed_data/xsum_mask_filling/valid_bart_fill.jsonl \
- $DATA/processed_data/xsum_mask_filling/valid_generated.txt \
- $DATA/processed_data/xsum_mask_filling/valid_generated.other
+python generated_json_to_text.py $DATA/processed_data/job_ad_relation/train.jsonl \
+ $DATA/processed_data/job_ad_mask_filling/train_bart_fill.jsonl \
+ $DATA/processed_data/job_ad_mask_filling/train_generated.txt \
+ $DATA/processed_data/job_ad_mask_filling/train_generated.other
+python generated_json_to_text.py $DATA/processed_data/job_ad_relation/valid.jsonl \
+ $DATA/processed_data/job_ad_mask_filling/valid_bart_fill.jsonl \
+ $DATA/processed_data/job_ad_mask_filling/valid_generated.txt \
+ $DATA/processed_data/job_ad_mask_filling/valid_generated.other
 
-python detect_relation_ne_summary.py $DATA/processed_data/xsum_mask_filling/train_generated.txt \
- $DATA/processed_data/xsum_mask_filling/train_generated.doc
-python detect_relation_ne_summary.py $DATA/processed_data/xsum_mask_filling/valid_generated.txt \
- $DATA/processed_data/xsum_mask_filling/valid_generated.doc
+python detect_relation_ne_summary.py $DATA/processed_data/job_ad_mask_filling/train_generated.txt \
+ $DATA/processed_data/job_ad_mask_filling/train_generated.doc
+python detect_relation_ne_summary.py $DATA/processed_data/job_ad_mask_filling/valid_generated.txt \
+ $DATA/processed_data/job_ad_mask_filling/valid_generated.doc
  
 # CNN/DM
 python generated_json_to_text.py $DATA/processed_data/cnndm_relation/train.jsonl \
@@ -107,16 +107,16 @@ python detect_relation_ne_summary.py $DATA/processed_data/cnndm_mask_filling/val
 
 ```shell
 # XSum
-python filter_generated.py --generated-docbins $DATA/processed_data/xsum_mask_filling/train_generated.doc \
- --source-docbins $DATA/processed_data/xsum_stanza_docbin/train.source \
- --target-docbins $DATA/processed_data/xsum_stanza_docbin/train.target \
- --other $DATA/processed_data/xsum_mask_filling/train_generated.other \
- $DATA/processed_data/xsum_mask_filling/train_filtered.jsonl
-python filter_generated.py --generated-docbins $DATA/processed_data/xsum_mask_filling/valid_generated.doc \
- --source-docbins $DATA/processed_data/xsum_stanza_docbin/valid.source \
- --target-docbins $DATA/processed_data/xsum_stanza_docbin/valid.target \
- --other $DATA/processed_data/xsum_mask_filling/valid_generated.other \
- $DATA/processed_data/xsum_mask_filling/valid_filtered.jsonl
+python filter_generated.py --generated-docbins $DATA/processed_data/job_ad_mask_filling/train_generated.doc \
+ --source-docbins $DATA/processed_data/job_ad_stanza_docbin/train.source \
+ --target-docbins $DATA/processed_data/job_ad_stanza_docbin/train.target \
+ --other $DATA/processed_data/job_ad_mask_filling/train_generated.other \
+ $DATA/processed_data/job_ad_mask_filling/train_filtered.jsonl
+python filter_generated.py --generated-docbins $DATA/processed_data/job_ad_mask_filling/valid_generated.doc \
+ --source-docbins $DATA/processed_data/job_ad_stanza_docbin/valid.source \
+ --target-docbins $DATA/processed_data/job_ad_stanza_docbin/valid.target \
+ --other $DATA/processed_data/job_ad_mask_filling/valid_generated.other \
+ $DATA/processed_data/job_ad_mask_filling/valid_filtered.jsonl
 
 # CNN/DM
 python filter_generated.py --generated-docbins $DATA/processed_data/cnndm_mask_filling/train_generated.doc \
@@ -135,12 +135,12 @@ python filter_generated.py --generated-docbins $DATA/processed_data/cnndm_mask_f
 
 ```shell
 # XSum
-mkdir -p $DATA/xsum_synthetic/negative_maskent
-mkdir -p $DATA/xsum_synthetic/negative_maskrel
-python get_new_ent_out.py $DATA/processed_data/xsum_mask_filling/train_filtered.jsonl $DATA/xsum_synthetic/negative_maskent/train
-python get_new_rel_out.py $DATA/processed_data/xsum_mask_filling/train_filtered.jsonl $DATA/xsum_synthetic/negative_maskrel/train
-python get_new_ent_out.py $DATA/processed_data/xsum_mask_filling/valid_filtered.jsonl $DATA/xsum_synthetic/negative_maskent/valid
-python get_new_rel_out.py $DATA/processed_data/xsum_mask_filling/valid_filtered.jsonl $DATA/xsum_synthetic/negative_maskrel/valid
+mkdir -p $DATA/job_ad_synthetic/negative_maskent
+mkdir -p $DATA/job_ad_synthetic/negative_maskrel
+python get_new_ent_out.py $DATA/processed_data/job_ad_mask_filling/train_filtered.jsonl $DATA/job_ad_synthetic/negative_maskent/train
+python get_new_rel_out.py $DATA/processed_data/job_ad_mask_filling/train_filtered.jsonl $DATA/job_ad_synthetic/negative_maskrel/train
+python get_new_ent_out.py $DATA/processed_data/job_ad_mask_filling/valid_filtered.jsonl $DATA/job_ad_synthetic/negative_maskent/valid
+python get_new_rel_out.py $DATA/processed_data/job_ad_mask_filling/valid_filtered.jsonl $DATA/job_ad_synthetic/negative_maskrel/valid
 
 # CNN/DM
 mkdir -p $DATA/cnndm_synthetic/negative_maskent
@@ -162,8 +162,8 @@ do
     python -m examples.roberta.multiprocessing_bpe_encoder \
             --encoder-json $DATA/fairseq.gpt2/encoder.json  \
             --vocab-bpe $DATA/fairseq.gpt2/vocab.bpe \
-            --inputs "$DATA/xsum_synthetic/negative_$STG/$SPLIT.raw_target" \
-            --outputs "$DATA/xsum_synthetic/negative_$STG/$SPLIT.neg_target" \
+            --inputs "$DATA/job_ad_synthetic/negative_$STG/$SPLIT.raw_target" \
+            --outputs "$DATA/job_ad_synthetic/negative_$STG/$SPLIT.neg_target" \
             --workers 60 \
             --keep-empty;
   done
@@ -191,18 +191,18 @@ done
 
 ```shell
 # XSum
-mkdir -p $DATA/processed_data/xsum_regeneration
-python regeneration_data.py $DATA/xsum_raw/train.bpe.source \
- $DATA/processed_data/xsum_relation/train.jsonl \
- $DATA/processed_data/xsum_regeneration/train
-python regeneration_data.py $DATA/xsum_raw/validation.bpe.source \
- $DATA/processed_data/xsum_relation/valid.jsonl \
- $DATA/processed_data/xsum_regeneration/valid
+mkdir -p $DATA/processed_data/job_ad_regeneration
+python regeneration_data.py $DATA/job_ad_raw/train.bpe.source \
+ $DATA/processed_data/job_ad_relation/train.jsonl \
+ $DATA/processed_data/job_ad_regeneration/train
+python regeneration_data.py $DATA/job_ad_raw/validation.bpe.source \
+ $DATA/processed_data/job_ad_relation/valid.jsonl \
+ $DATA/processed_data/job_ad_regeneration/valid
 
 fairseq-preprocess --source-lang source --target-lang target \
- --trainpref $DATA/processed_data/xsum_regeneration/train.bpe \
- --validpref $DATA/processed_data/xsum_regeneration/valid.bpe \
- --destdir $DATA/processed_data/xsum_regeneration \
+ --trainpref $DATA/processed_data/job_ad_regeneration/train.bpe \
+ --validpref $DATA/processed_data/job_ad_regeneration/valid.bpe \
+ --destdir $DATA/processed_data/job_ad_regeneration \
  --workers 60 \
  --srcdict $DATA/fairseq.gpt2/dict.txt \
  --tgtdict $DATA/fairseq.gpt2/dict.txt
@@ -240,20 +240,20 @@ Then run the following commands for regeneration:
 ```shell
 # XSum
 cd regen_scripts
-./regen_xsum_train.sh
-./regen_xsum_valid.sh
-mkdir -p $DATA/processed_data/xsum_regeneration_output
-python convert_regeneration.py --generate-dir $DATA/processed_data/xsum_regeneration_output
-python add_prompt.py $DATA/processed_data/xsum_regeneration/train.bpe.target \
-  $DATA/processed_data/xsum_regeneration_output/formatted-train.txt \
-  $DATA/processed_data/xsum_regeneration/train.other \
-  $DATA/processed_data/xsum_regeneration_output/train_generated.txt \
-  $DATA/processed_data/xsum_regeneration_output/train_generated.other
-python add_prompt.py $DATA/processed_data/xsum_regeneration/valid.bpe.target \
-  $DATA/processed_data/xsum_regeneration_output/formatted-valid.txt \
-  $DATA/processed_data/xsum_regeneration/valid.other \
-  $DATA/processed_data/xsum_regeneration_output/valid_generated.txt \
-  $DATA/processed_data/xsum_regeneration_output/valid_generated.other
+./regen_job_ad_train.sh
+./regen_job_ad_valid.sh
+mkdir -p $DATA/processed_data/job_ad_regeneration_output
+python convert_regeneration.py --generate-dir $DATA/processed_data/job_ad_regeneration_output
+python add_prompt.py $DATA/processed_data/job_ad_regeneration/train.bpe.target \
+  $DATA/processed_data/job_ad_regeneration_output/formatted-train.txt \
+  $DATA/processed_data/job_ad_regeneration/train.other \
+  $DATA/processed_data/job_ad_regeneration_output/train_generated.txt \
+  $DATA/processed_data/job_ad_regeneration_output/train_generated.other
+python add_prompt.py $DATA/processed_data/job_ad_regeneration/valid.bpe.target \
+  $DATA/processed_data/job_ad_regeneration_output/formatted-valid.txt \
+  $DATA/processed_data/job_ad_regeneration/valid.other \
+  $DATA/processed_data/job_ad_regeneration_output/valid_generated.txt \
+  $DATA/processed_data/job_ad_regeneration_output/valid_generated.other
 
 # CNN/DM
 cd regen_scripts
@@ -277,10 +277,10 @@ python add_prompt.py $DATA/processed_data/cnndm_regeneration/valid.bpe.target \
 
 ```shell
 # XSum
-python detect_relation_ne_summary.py $DATA/processed_data/xsum_regeneration_output/train_generated.txt \
- $DATA/processed_data/xsum_regeneration_output/train_generated.doc
-python detect_relation_ne_summary.py $DATA/processed_data/xsum_regeneration_output/valid_generated.txt \
- $DATA/processed_data/xsum_regeneration_output/valid_generated.doc
+python detect_relation_ne_summary.py $DATA/processed_data/job_ad_regeneration_output/train_generated.txt \
+ $DATA/processed_data/job_ad_regeneration_output/train_generated.doc
+python detect_relation_ne_summary.py $DATA/processed_data/job_ad_regeneration_output/valid_generated.txt \
+ $DATA/processed_data/job_ad_regeneration_output/valid_generated.doc
  
 # CNN/DM
 python detect_relation_ne_summary.py $DATA/processed_data/cnndm_regeneration_output/train_generated.txt \
@@ -293,16 +293,16 @@ python detect_relation_ne_summary.py $DATA/processed_data/cnndm_regeneration_out
 
 ```shell
 # XSum
-python filter_generated.py --generated-docbins $DATA/processed_data/xsum_regeneration_output/train_generated.doc \
- --source-docbins $DATA/processed_data/xsum_stanza_docbin/train.source \
- --target-docbins $DATA/processed_data/xsum_stanza_docbin/train.target \
- --other $DATA/processed_data/xsum_regeneration_output/train_generated.other \
- $DATA/processed_data/xsum_regeneration_output/train_filtered.jsonl
-python filter_generated.py --generated-docbins $DATA/processed_data/xsum_regeneration_output/valid_generated.doc \
- --source-docbins $DATA/processed_data/xsum_stanza_docbin/valid.source \
- --target-docbins $DATA/processed_data/xsum_stanza_docbin/valid.target \
- --other $DATA/processed_data/xsum_regeneration_output/valid_generated.other \
- $DATA/processed_data/xsum_regeneration_output/valid_filtered.jsonl
+python filter_generated.py --generated-docbins $DATA/processed_data/job_ad_regeneration_output/train_generated.doc \
+ --source-docbins $DATA/processed_data/job_ad_stanza_docbin/train.source \
+ --target-docbins $DATA/processed_data/job_ad_stanza_docbin/train.target \
+ --other $DATA/processed_data/job_ad_regeneration_output/train_generated.other \
+ $DATA/processed_data/job_ad_regeneration_output/train_filtered.jsonl
+python filter_generated.py --generated-docbins $DATA/processed_data/job_ad_regeneration_output/valid_generated.doc \
+ --source-docbins $DATA/processed_data/job_ad_stanza_docbin/valid.source \
+ --target-docbins $DATA/processed_data/job_ad_stanza_docbin/valid.target \
+ --other $DATA/processed_data/job_ad_regeneration_output/valid_generated.other \
+ $DATA/processed_data/job_ad_regeneration_output/valid_filtered.jsonl
 
 # CNN/DM
 python filter_generated.py --generated-docbins $DATA/processed_data/cnndm_regeneration_output/train_generated.doc \
@@ -321,12 +321,12 @@ python filter_generated.py --generated-docbins $DATA/processed_data/cnndm_regene
 
 ```shell
 # XSum
-mkdir -p $DATA/xsum_synthetic/negative_regenent
-mkdir -p $DATA/xsum_synthetic/negative_regenrel
-python get_new_ent_out.py $DATA/processed_data/xsum_regeneration_output/train_filtered.jsonl $DATA/xsum_synthetic/negative_regenent/train
-python get_new_rel_out.py $DATA/processed_data/xsum_regeneration_output/train_filtered.jsonl $DATA/xsum_synthetic/negative_regenrel/train
-python get_new_ent_out.py $DATA/processed_data/xsum_regeneration_output/valid_filtered.jsonl $DATA/xsum_synthetic/negative_regenent/valid
-python get_new_rel_out.py $DATA/processed_data/xsum_regeneration_output/valid_filtered.jsonl $DATA/xsum_synthetic/negative_regenrel/valid
+mkdir -p $DATA/job_ad_synthetic/negative_regenent
+mkdir -p $DATA/job_ad_synthetic/negative_regenrel
+python get_new_ent_out.py $DATA/processed_data/job_ad_regeneration_output/train_filtered.jsonl $DATA/job_ad_synthetic/negative_regenent/train
+python get_new_rel_out.py $DATA/processed_data/job_ad_regeneration_output/train_filtered.jsonl $DATA/job_ad_synthetic/negative_regenrel/train
+python get_new_ent_out.py $DATA/processed_data/job_ad_regeneration_output/valid_filtered.jsonl $DATA/job_ad_synthetic/negative_regenent/valid
+python get_new_rel_out.py $DATA/processed_data/job_ad_regeneration_output/valid_filtered.jsonl $DATA/job_ad_synthetic/negative_regenrel/valid
 
 # CNN/DM
 mkdir -p $DATA/cnndm_synthetic/negative_regenent
@@ -348,8 +348,8 @@ do
     python -m examples.roberta.multiprocessing_bpe_encoder \
             --encoder-json $DATA/fairseq.gpt2/encoder.json  \
             --vocab-bpe $DATA/fairseq.gpt2/vocab.bpe \
-            --inputs "$DATA/xsum_synthetic/negative_$STG/$SPLIT.raw_target" \
-            --outputs "$DATA/xsum_synthetic/negative_$STG/$SPLIT.neg_target" \
+            --inputs "$DATA/job_ad_synthetic/negative_$STG/$SPLIT.raw_target" \
+            --outputs "$DATA/job_ad_synthetic/negative_$STG/$SPLIT.neg_target" \
             --workers 60 \
             --keep-empty;
   done

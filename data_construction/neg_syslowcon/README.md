@@ -11,11 +11,11 @@ pip install -r requirements.txt
 
 ##### Generate
 
-First, download the BART models pre-trained on XSum (`bart.large.xsum`) and CNN/DM (`bart.large.cnn`) from [Fairseq](https://github.com/pytorch/fairseq/tree/master/examples/bart)
+First, download the BART models pre-trained on XSum (`bart.large.job_ad`) and CNN/DM (`bart.large.cnn`) from [Fairseq](https://github.com/pytorch/fairseq/tree/master/examples/bart)
 and set the corresponding environment variables for them:
 
 ```shell
-export XSUM_BART=/path/to/bart.large.xsum/model.pt
+export XSUM_BART=/path/to/bart.large.job_ad/model.pt
 export CNNDM_BART=/path/to/bart.large.cnn/model.pt
 ```
 
@@ -24,12 +24,12 @@ Then run the following commands for generation:
 ```shell
 # XSum
 cd syslowcon_scripts
-./xsum_train.sh
-./xsum_valid.sh
-python get_output.py $DATA/processed_data/syslowcon_xsum_generation/generate-train.txt \
- $DATA/processed_data/syslowcon_xsum_generation/train.jsonl
-python get_output.py $DATA/processed_data/syslowcon_xsum_generation/generate-valid.txt \
- $DATA/processed_data/syslowcon_xsum_generation/valid.jsonl
+./job_ad_train.sh
+./job_ad_valid.sh
+python get_output.py $DATA/processed_data/syslowcon_job_ad_generation/generate-train.txt \
+ $DATA/processed_data/syslowcon_job_ad_generation/train.jsonl
+python get_output.py $DATA/processed_data/syslowcon_job_ad_generation/generate-valid.txt \
+ $DATA/processed_data/syslowcon_job_ad_generation/valid.jsonl
  
 # CNN/DM
 cd syslowcon_scripts
@@ -45,11 +45,11 @@ python get_output.py $DATA/processed_data/syslowcon_cnndm_generation/generate-va
 
 ```shell
 # XSum
-mkdir -p $DATA/xsum_synthetic/negative_syslowcon
-python filter_out.py $DATA/processed_data/syslowcon_xsum_generation/train.jsonl \
- $DATA/xsum_synthetic/negative_syslowcon/train
-python filter_out.py $DATA/processed_data/syslowcon_xsum_generation/valid.jsonl \
- $DATA/xsum_synthetic/negative_syslowcon/valid
+mkdir -p $DATA/job_ad_synthetic/negative_syslowcon
+python filter_out.py $DATA/processed_data/syslowcon_job_ad_generation/train.jsonl \
+ $DATA/job_ad_synthetic/negative_syslowcon/train
+python filter_out.py $DATA/processed_data/syslowcon_job_ad_generation/valid.jsonl \
+ $DATA/job_ad_synthetic/negative_syslowcon/valid
 
 # CNN/DM
 mkdir -p $DATA/cnndm_synthetic/negative_syslowcon

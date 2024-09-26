@@ -17,17 +17,17 @@ do
     python -m examples.roberta.multiprocessing_bpe_encoder \
             --encoder-json $DATA/fairseq.gpt2/encoder.json  \
             --vocab-bpe $DATA/fairseq.gpt2/vocab.bpe \
-            --inputs "$DATA/xsum_raw/$SPLIT.$LANG" \
-            --outputs "$DATA/xsum_raw/$SPLIT.bpe.$LANG" \
+            --inputs "$DATA/job_ad_raw/$SPLIT.$LANG" \
+            --outputs "$DATA/job_ad_raw/$SPLIT.bpe.$LANG" \
             --workers 60 \
             --keep-empty;
   done
 done
 
 fairseq-preprocess --source-lang source --target-lang target \
- --trainpref $DATA/xsum_raw/train.bpe \
- --validpref $DATA/xsum_raw/validation.bpe \
- --destdir $DATA/xsum_binarized \
+ --trainpref $DATA/job_ad_raw/train.bpe \
+ --validpref $DATA/job_ad_raw/validation.bpe \
+ --destdir $DATA/job_ad_binarized \
  --workers 60 \
  --srcdict $DATA/fairseq.gpt2/dict.txt \
  --tgtdict $DATA/fairseq.gpt2/dict.txt

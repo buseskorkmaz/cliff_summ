@@ -23,9 +23,9 @@ keep the paraphrases that exchange nations' names with their adjectival and demo
 
 ```shell
 # XSum
-mkdir -p $DATA/xsum_synthetic/positive_bt
-python nlpaug_bt.py $DATA/xsum_raw/train.target $DATA/xsum_synthetic/positive_bt/train
-python nlpaug_bt.py $DATA/xsum_raw/validation.target $DATA/xsum_synthetic/positive_bt/valid
+mkdir -p /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_synthetic/positive_bt
+python nlpaug_bt.py /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_raw/train.target /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_synthetic/positive_bt/train
+python nlpaug_bt.py /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_raw/validation.target /dccstor/autofair/busekorkmaz/cliff_summ/data/job_ad_synthetic/positive_bt/valid
 
 # CNN/DM
 mkdir -p $DATA/cnndm_synthetic/positive_bt
@@ -37,9 +37,9 @@ python nlpaug_bt.py $DATA/cnndm_raw/val.target $DATA/cnndm_synthetic/positive_bt
 
 ```shell
 # XSum
-mkdir -p $DATA/xsum_synthetic/positive_bt_filter
-python nlpaug_bt_filter.py $DATA/xsum_synthetic/positive_bt/train.raw_target $DATA/xsum_raw/train.target $DATA/xsum_synthetic/positive_bt_filter/train
-python nlpaug_bt_filter.py $DATA/xsum_synthetic/positive_bt/valid.raw_target $DATA/xsum_raw/validation.target $DATA/xsum_synthetic/positive_bt_filter/valid
+mkdir -p $DATA/job_ad_synthetic/positive_bt_filter
+python nlpaug_bt_filter.py $DATA/job_ad_synthetic/positive_bt/train.raw_target $DATA/job_ad_raw/train.target $DATA/job_ad_synthetic/positive_bt_filter/train
+python nlpaug_bt_filter.py $DATA/job_ad_synthetic/positive_bt/valid.raw_target $DATA/job_ad_raw/validation.target $DATA/job_ad_synthetic/positive_bt_filter/valid
 
 # CNN/DM
 mkdir -p $DATA/cnndm_synthetic/positive_bt_filter
@@ -51,12 +51,12 @@ python nlpaug_bt_filter.py $DATA/cnndm_synthetic/positive_bt/valid.raw_target $D
 
 ```shell
 # XSum
-python convert_and_combine.py $DATA/xsum_synthetic/positive_bt_filter/train.raw_target \
- /$DATA/xsum_raw/train.target $DATA/xsum_synthetic/positive_bt_filter/train.raw_other \
- $DATA/xsum_synthetic/positive_bt_filter/train 
-python convert_and_combine.py $DATA/xsum_synthetic/positive_bt_filter/valid.raw_target \
- /$DATA/xsum_raw/validation.target $DATA/xsum_synthetic/positive_bt_filter/valid.raw_other \
- $DATA/xsum_synthetic/positive_bt_filter/valid
+python convert_and_combine.py $DATA/job_ad_synthetic/positive_bt_filter/train.raw_target \
+ /$DATA/job_ad_raw/train.target $DATA/job_ad_synthetic/positive_bt_filter/train.raw_other \
+ $DATA/job_ad_synthetic/positive_bt_filter/train 
+python convert_and_combine.py $DATA/job_ad_synthetic/positive_bt_filter/valid.raw_target \
+ /$DATA/job_ad_raw/validation.target $DATA/job_ad_synthetic/positive_bt_filter/valid.raw_other \
+ $DATA/job_ad_synthetic/positive_bt_filter/valid
  
 # CNN/DM
 python convert_and_combine.py $DATA/cnndm_synthetic/positive_bt_filter/train.raw_target \

@@ -10,9 +10,8 @@ def main():
     args = parser.parse_args()
 
     back_translation_aug = naw.BackTranslationAug(
-        from_model_name='transformer.wmt19.en-de',
-        to_model_name='transformer.wmt19.de-en',
-        device='cuda'
+        from_model_name='Helsinki-NLP/opus-mt-en-de',
+        to_model_name='Helsinki-NLP/opus-mt-de-en'
     )
 
     with open(args.in_file) as f:

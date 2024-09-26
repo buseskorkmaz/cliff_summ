@@ -6,7 +6,7 @@ Code for EMNLP 2021 paper "CLIFF: Contrastive Learning for Improving Faithfulnes
 
 ## News
 
-- Codes for using unlikelihood training and in-batch negatives are added. Please check [train_xsum_batch_neg.sh](scripts/bart/train_xsum_batch_neg.sh) and [train_xsum_single_neg_ull.sh](scripts/bart/train_xsum_single_neg_ull.sh).
+- Codes for using unlikelihood training and in-batch negatives are added. Please check [train_job_ad_batch_neg.sh](scripts/bart/train_job_ad_batch_neg.sh) and [train_job_ad_single_neg_ull.sh](scripts/bart/train_job_ad_single_neg_ull.sh).
 Related Fairseq codes are here: [unlikelihood_translation.py](models/bart/unlikelihood_translation.py) and [contrastive_translation_batch_neg.py](models/bart/contrastive_translation_batch_neg.py).
 - A cleaner implementation is available. The new implementation uses less system RAM and is compatible with the current version of Fairseq.
 Check [here](new_fairseq_implementation).
@@ -40,14 +40,14 @@ export BART_PATH=/path/to/bart/model.pt
 ##### Single Negative Strategy
 
 The following command trains the models with negative samples constructed by `SysLowCon`.
-It saves the trained models in `$TRAINED_MODELS/xsum/syslowcon` and `$TRAINED_MODELS/cnndm/syslowcon`.
-Please change `$DATA/xsum_synthetic/negative_syslowcon` to other negative samples to train the corresponding models.
+It saves the trained models in `$TRAINED_MODELS/job_ad/syslowcon` and `$TRAINED_MODELS/cnndm/syslowcon`.
+Please change `$DATA/job_ad_synthetic/negative_syslowcon` to other negative samples to train the corresponding models.
 
 ```shell
 # XSum
 cd scripts/bart
-CUDA_VISIBLE_DEVICES=0,1 ./train_xsum_single_neg.sh \
-  $DATA/xsum_synthetic/negative_syslowcon $TRAINED_MODELS/bart_xsum/syslowcon
+CUDA_VISIBLE_DEVICES=0,1 ./train_job_ad_single_neg.sh \
+  $DATA/job_ad_synthetic/negative_syslowcon $TRAINED_MODELS/bart_job_ad/syslowcon
 
 # CNN/DM
 cd scripts/bart
@@ -58,14 +58,14 @@ CUDA_VISIBLE_DEVICES=0,1 ./train_cnndm_single_neg.sh \
 ##### Multiple Negative Strategies
 
 The following command trains the models with negative samples constructed by `SysLowCon` and `SwapEnt`.
-It saves the trained models in `$TRAINED_MODELS/xsum/syslowcon_swapent` and `$TRAINED_MODELS/cnndm/syslowcon_swapent`.
+It saves the trained models in `$TRAINED_MODELS/job_ad/syslowcon_swapent` and `$TRAINED_MODELS/cnndm/syslowcon_swapent`.
 
 ```shell
 # XSum
 cd scripts/bart
-CUDA_VISIBLE_DEVICES=0,1 ./train_xsum_mutli_neg.sh \
-  "$DATA/xsum_synthetic/negative_syslowcon $DATA/xsum_synthetic/negative_swapent" \
-  $TRAINED_MODELS/bart_xsum/syslowcon_swapent
+CUDA_VISIBLE_DEVICES=0,1 ./train_job_ad_multi_neg.sh \
+  "$DATA/job_ad_synthetic/negative_syslowcon $DATA/job_ad_synthetic/negative_swapent" \
+  $TRAINED_MODELS/bart_job_ad/syslowcon_swapent
 
 # CNN/DM
 cd scripts/bart
@@ -84,8 +84,8 @@ Newer versions might also work.
 ```shell
 # XSum
 cd scripts/pegasus
-CUDA_VISIBLE_DEVICES=0,1 ./train_xsum_single_neg.sh \
-  $DATA/xsum_synthetic/negative_syslowcon $TRAINED_MODELS/pegasus_xsum/syslowcon
+CUDA_VISIBLE_DEVICES=0,1 ./train_job_ad_single_neg.sh \
+  $DATA/job_ad_synthetic/negative_syslowcon $TRAINED_MODELS/pegasus_job_ad/syslowcon
   
 # CNN/DM
 cd scripts/pegasus
@@ -103,7 +103,7 @@ The following examples show how to decode trained models. Model checkpoints are 
 ```shell
 # XSum
 cd scripts/bart
-./decode_xsum.sh $TRAINED_MODELS/bart_xsum/syslowcon/checkpoint_last.pt /path/to/save/dir
+./decode_job_ad.sh $TRAINED_MODELS/bart_job_ad/syslowcon/checkpoint_last.pt /path/to/save/dir
 
 # CNN/DM
 cd scripts/bart
@@ -115,7 +115,7 @@ cd scripts/bart
 ```shell
 # XSum
 cd scripts/pegasus
-python run_generation.py $DATA/xsum_raw/test.source $TRAINED_MODELS/pegasus_xsum/syslowcon /path/to/save/dir
+python run_generation.py $DATA/job_ad_raw/test.source $TRAINED_MODELS/pegasus_job_ad/syslowcon /path/to/save/dir
 
 # CNN/DM
 cd scripts/pegasus
